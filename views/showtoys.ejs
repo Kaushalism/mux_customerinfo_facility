@@ -1,0 +1,71 @@
+<!--mcc start-->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="https://muxemail.com/">MuxEmail |\/|</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Select Shop
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" onclick="window.location.href='/show/electronics_store'">Electronics Shop</a>
+            <a class="dropdown-item" onclick="window.location.href='/show/toys_store'">Toy Store</a>
+          </div>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" onclick="window.location.href='/addcustomer'">Add Customer</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" onclick="window.location.href='/logout'">Logout</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+  <div
+    class="row"
+    style="background-image: url('bck.jpg'); margin: 0; padding: 0;"
+  >
+  <div class="col-md-12"><%- include('./partials/messages') %></div>
+<div class="card col-md-12 pre-scrollable" style="margin-bottom: 50px; margin-top: 25px;" >
+    <div class="card-header">
+      Mux Toys Store Customers 
+    </div>
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item">
+        <% for(var j = 0; j < customers.length; j++){ %>
+        
+        <div class="card col-md-9 m-3" style="margin-top: 10px; margin-bottom: 10px;"> 
+            Cust.No. : <%= j+1 %><br>
+        <% for(var i = 0 ; i < fields.length ; i++) {%>
+          
+            
+                <% var t = fields[i].name %>
+                <% var y = customers[j] %>
+                
+                <div class="card-text" style="margin-left: 10px ;">
+                <% if(y[t] == undefined){ %>
+                    <%= fields[i].name %> : Empty  
+                <%} else { %>     
+                    <%= fields[i].name %> : <%= y[t]  %>
+                    <br>
+                <% } %>
+                </div>
+
+            
+          <% } %>
+          <span>
+            <form method="POST">
+            <button class="btn-sm btn-primary" formaction='/delete/customer_toys' style="margin-bottom: 5px;" name="id" value="<%=customers[j]._id %>"> X Delete Customer</button>
+            
+          </form>
+          </span>
+         
+        </div>
+          <% } %>
+      </li>
+    </ul>
+  </div>
+  </div>

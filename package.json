@@ -1,0 +1,26 @@
+{
+  "name": "mux_assignment",
+  "version": "1.0.0",
+  "description": "customer management facility",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Nitin Kaushal",
+  "license": "ISC",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "connect-flash": "^0.1.1",
+    "ejs": "^3.1.3",
+    "express": "^4.17.1",
+    "express-ejs-layouts": "^2.5.0",
+    "express-session": "^1.17.1",
+    "flash": "^1.1.0",
+    "fs-extra": "^9.1.0",
+    "jquery": "^3.5.1",
+    "jsdom": "^16.4.0",
+    "mongoose": "^5.11.17",
+    "passport": "^0.4.1",
+    "passport-local": "^1.0.0"
+  }
+}

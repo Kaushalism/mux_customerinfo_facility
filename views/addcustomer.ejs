@@ -1,0 +1,153 @@
+<!--mcc start-->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <a class="navbar-brand" href="https://muxemail.com/">MuxEmail |\/|</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav">
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Select Shop
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" onclick="window.location.href='/show/electronics_store'">Electronics Shop</a>
+          <a class="dropdown-item" onclick="window.location.href='/show/toys_store'">Toy Store</a>
+        </div>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" onclick="window.location.href='/addcustomer'">Add Customer</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" onclick="window.location.href='/logout'">Logout</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+<div
+  class="row"
+  style="background-image: url('bck.jpg'); margin: 0; padding: 0;"
+>
+  <div class="col-md-9 m-auto">
+    <div
+      class="card card-body pre-scrollable"
+      style="max-height: 38rem; margin-bottom: 30px; margin-top: 30px;"
+    >
+      <h2 class="text-center mb-3">
+        <i class="fas fa-user-plus"></i>Add-Customer Form (Electronics Store)
+      </h2>
+      <%- include('./partials/messages') %>
+      <h3>Go to store :</h3>
+      <button class="btn-sm btn-success" onclick="window.location.href='/add/electronics'"> Electronics Store</button>
+      <button class="btn-sm btn-primary" onclick="window.location.href='/add/toys'" style="margin-bottom: 10px;"> Toys Store</button>
+      <h3> Fill the form : </h3>
+      <form action="/addcustomer/newfield/customer_electronics" method="POST">
+        <% if (field.length != 0) { %>
+          <% for(var i=0;i< field.length; i++) { %>
+        <div class="form-group">
+          <label for="added"><%= field[i].name %> :</label>
+          <input
+            type="<%= field[i].type %>"
+            id="bday"
+            name="<%= field[i].name %>"
+            class="form-control"
+            
+          />
+        </div>
+        <% if(field[i].imp != "true"){ %>
+        <span>
+        <button class="btn-sm btn-primary" formaction='/delete/electronics' style="margin-bottom: 5px;" name="id" value="<%=field[i]._id %>"> X Delete Field</button>
+        
+        </span>
+        <% } %>
+        <% } %>
+        <% } %>
+
+       
+
+ 
+
+        <button type="submit" class="btn btn-primary btn-block">
+          Submit
+        </button>
+      </form>
+
+       <!---->
+          
+       <form action="/add/newfield" method="POST">
+       <h3 style="margin-top: 10px;">Add extra fields</h3>  
+       <div class="input_fields_wrap form-group">
+       <input type="text" class="form-control field_name" name="name" placeholder="Enter the field name" style="margin-bottom: 5px;">
+       <input type="text" class="form-control " name="deleted" value="false" readonly hidden  style="margin-bottom: 5px;">
+       <input type="text" class="form-control " name="imp" value="false" readonly hidden  style="margin-bottom: 5px;">
+         <select
+           type="text"
+           class="form-control field_type"
+           name="type"
+           id="type"
+           value="<%= typeof type != 'undefined' ? type : '' %>"
+         >
+           <option>text</option>
+           <option>number</option>
+           <option>email</option>
+           <option>date</option>
+         </select>
+         <label>Select Store :</label>
+         <select
+         type="text"
+         class="form-control field_type"
+         name="store"
+         id="store"
+       >
+         <option>Electronics_store</option>
+         <option>Toys_store</option>
+       </select>
+     
+       
+       <button class="add_field_button btn btn-success" type="submit" style="margin-top: 10px;">Add This Field</button>
+       
+     
+       </div>
+       <!-- <script>
+        $(document).ready(function() {
+          var max_fields      = 13; //maximum input boxes allowed
+          var wrapper         = $(".input_fields_wrap"); //Fields wrapper
+          var add_button      = $(".add_field_button"); //Add button ID
+          var x = 1; //initlal text box count
+          $(add_button).click(function(e){
+            e.preventDefault();
+            var field_name      = $(".field_name").val();
+            var field_type      = $(".field_type").val();
+            alert(`You are going to add a new field to the form: Name = ${field_name}, datatype = ${field_type}`)
+            $.post('/add/newfield',{
+              name : field_name,
+              type : field_type,
+            })
+       //  $(add_button).click(function(e){ //on add input button click
+       //       e.preventDefault();
+       //       var field_name      = $(".field_name").val();
+       //       var field_type      = $(".field_type").val();
+             
+       //       if(x < max_fields){ //max input box allowed
+       //         var t = `<div class="form-group"><label for="${field_name}">${field_name}</label><input type="${field_type}" name="${field_name}" class="form-control"/><a href="#" class="remove_field">Remove</a></div>`
+       
+       //        //text box increment
+       //           $(wrapper).append(t); //add input box
+       //           x++; 
+       //   }
+       //   });
+        
+       //   $(wrapper).on("click",".remove_field", function(e){ //user click on remove text
+            
+       //   e.preventDefault(); 
+       //   $(this).parent('div').remove(); 
+       //   x--;
+       //   })
+     });
+       
+       </script>    -->
+    </div>
+  </div>
+</div>
+
+<!--mcc ends-->
