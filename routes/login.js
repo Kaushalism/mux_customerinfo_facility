@@ -7,7 +7,7 @@ const { forwardAuthenticated, ensureAuthenticated } = require('../config/auth');
 
 // Login_Page
 router.get('/', forwardAuthenticated,(req, res) =>
-  res.render('adminlogin')
+  res.render('adminLogin')
 );
 
 // Login_Page
