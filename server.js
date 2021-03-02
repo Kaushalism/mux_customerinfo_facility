@@ -87,6 +87,7 @@ const PORT = process.env.PORT || 1111;
 //check
 if(process.env.NODE_ENV === 'production'){
   server.use(express.static(path.join(__dirname, 'views')));
+  server.use(express.static(path.join(__dirname, 'views/partials')));
 }
 
 server.listen(PORT, console.log(`Server started on port ${PORT}`));
