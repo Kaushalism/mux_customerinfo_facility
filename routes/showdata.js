@@ -42,4 +42,15 @@ router.post('/delete/customer_toys' ,ensureAuthenticated, async (req,res) => {
     res.redirect('/show/toys_store');
 });
 
+
+//test 
+
+router.get('/show/es', async (req,res) =>{
+
+    let customers =  await customer_electronics.find();
+    let fields = await Electronics_fields.find();
+    res.send(customers);
+
+});
+
 module.exports = router;

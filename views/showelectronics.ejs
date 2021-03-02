@@ -38,18 +38,20 @@
         <% for(var j = 0; j < customers.length; j++){ %>
         
         <div class="card col-md-9 m-3" style="margin-top: 10px; margin-bottom: 10px;"> 
-            Cust.No. : <%= j+1 %><br>
+            Cust.No. : <%= j %><br>
         <% for(var i = 0 ; i < fields.length ; i++) {%>
           
             
-                <% var t = fields[i].name %>
-                <% var y = customers[j] %>
+                 <% var t = fields[i].name %>
+                <% var y = customers[j] %> 
                 
                 <div class="card-text" style="margin-left: 10px ;">
                 <% if(y[t] == undefined){ %>
                     <%= fields[i].name %> : Empty  
                 <%} else { %>     
-                    <%= fields[i].name %> : <%= y[t]  %>
+                  <%= fields[i].name %> : <%= y[t] %>  
+                    
+                    
                     <br>
                 <% } %>
                 </div>

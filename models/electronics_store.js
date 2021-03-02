@@ -26,6 +26,10 @@ const ElecCustomerSchema = new mongoose.Schema({
     type: Date,
     required: false,
   },
+  fathersName: {
+    type: String,
+    required: false,
+  },
 },{strict: false});
 
 const ElecCustomer = mongoose.model('Electronics_Shop', ElecCustomerSchema);
