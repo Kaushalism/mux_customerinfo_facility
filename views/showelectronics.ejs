@@ -37,8 +37,9 @@
       <li class="list-group-item">
         <% for(var j = 0; j < customers.length; j++){ %>
         
-        <div class="card col-md-9 m-3" style="margin-top: 10px; margin-bottom: 10px;"> 
-            Cust.No. : <%= j %><br>
+        <div class="card col-md-9 m-3" style="margin-top: 10px; margin-bottom: 10px;">
+          <%var count  = j%> 
+            Cust.No. : <%= count+1  %><br>
         <% for(var i = 0 ; i < fields.length ; i++) {%>
           
             
