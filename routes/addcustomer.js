@@ -155,7 +155,7 @@ router.post('/addcustomer/newfield/customer_electronics', ensureAuthenticated,as
         res.redirect('/add/electronics')
         }
     }catch(err){
-        res.send({msg : 'Something went wrong'});
+        res.send({msg : 'Something went wrong',err});
     }
 });
 

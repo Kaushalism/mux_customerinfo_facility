@@ -35,38 +35,22 @@
       Mux Toys Store Customers 
     </div>
     <ul class="list-group list-group-flush">
-      <li class="list-group-item">
-        <% for(var j = 0; j < customers.length; j++){ %>
-        
-        <div class="card col-md-9 m-3" style="margin-top: 10px; margin-bottom: 10px;"> 
-            Cust.No. : <%= j+1 %><br>
-        <% for(var i = 0 ; i < fields.length ; i++) {%>
-          
-            
-                <% var t = fields[i].name %>
-                <% var y = customers[j] %>
-                
-                <div class="card-text" style="margin-left: 10px ;">
-                <% if(y[t] == undefined){ %>
-                    <%= fields[i].name %> : Empty  
-                <%} else { %>     
-                    <%= fields[i].name %> : <%= y[t]  %>
-                    <br>
-                <% } %>
-                </div>
-
-            
-          <% } %>
-          <span>
-            <form method="POST">
-            <button class="btn-sm btn-primary" formaction='/delete/customer_toys' style="margin-bottom: 5px;" name="id" value="<%=customers[j]._id %>"> X Delete Customer</button>
-            
-          </form>
-          </span>
-         
-        </div>
-          <% } %>
-      </li>
+      <% for(let j = 0; j < customers.length; j++){ %>
+        <li class="list-group-item">
+          <div class="card col-md-9 m-3" style="margin-top: 10px; margin-bottom: 10px;">
+  
+                      <%=customers[j]%>
+                      
+            <span>
+              <form method="POST">
+              <button class="btn-sm btn-primary" formaction='/delete/customer_toys' style="margin-bottom: 5px;" name="id" value="<%=customers[j]._id %>"> X Delete Customer</button>
+              <button class="btn-sm btn-success" formaction='/update/customer_form' style="margin-bottom: 5px;" name="id" value="<%=customers[j]._id %>"> Update Customer</button>
+            </form>
+            </span>
+           
+          </div>
+            <% } %>
+          </li>
     </ul>
   </div>
   </div>

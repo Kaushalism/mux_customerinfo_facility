@@ -21,6 +21,8 @@ server.use('/add/toys', a);
 server.use('/addcustomer', a);
 server.use('/show/electronics_store', a);
 server.use('/show/toys_store', a);
+server.use('/update/customer_form_el', a);
+server.use('/update/customer_form', a);
 
 // Connect_to_MongoDB
 mongoose

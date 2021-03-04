@@ -35,35 +35,18 @@
       Mux Electronics Store Customers 
     </div>
     <ul class="list-group list-group-flush">
+      <% for(let j = 0; j < customers.length; j++){ %>
       <li class="list-group-item">
-        <% for(var j = 0; j < customers.length; j++){ %>
         
-        <div class="card col-md-9 m-3" style="margin-top: 10px; margin-bottom: 10px;">
-          <%var count  = j%> 
-            Cust.No. : <%= count+1  %><br>
-        <% for(var i = 0 ; i < fields.length ; i++) {%>
-          
-            
-                 <% var t = fields[i].name %>
-                <% var y = customers[j] %> 
-                
-                <div class="card-text" style="margin-left: 10px ;">
-                <% if(y[t] == undefined){ %>
-                    <%= fields[i].name %> : Empty  
-                <%} else { %>     
-                  <%= fields[i].name %> : <%= y[t] %>  
-                    
-                    
-                    <br>
-                <% } %>
-                </div>
+        
+       <div class="card col-md-9 " style="margin-top: 10px; margin-bottom: 10px;">
 
-            
-          <% } %>
+                    <%=customers[j]%>
+
           <span>
             <form method="POST">
             <button class="btn-sm btn-primary" formaction='/delete/customer_electronics' style="margin-bottom: 5px;" name="id" value="<%=customers[j]._id %>"> X Delete Customer</button>
-            
+            <button class="btn-sm btn-success" formaction='/update/customer_form_el' style="margin-bottom: 5px;" name="id" value="<%=customers[j]._id %>"> Update Customer</button>
           </form>
           </span>
          
